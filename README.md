@@ -29,6 +29,7 @@ This will require accurate system timekeeping, time scheduling, hooks and argume
                              \...
 
 Requirements and expectations:
+
     Set start time on the clock at 15 min increments
         typically 00 or 30, but also allow for 15 and 45 to accomodate shorter shows
 
@@ -37,10 +38,13 @@ Requirements and expectations:
         Each day the episode number increases
         Cycles back to 1 after reaching maximum
 
-    Stretch: Could have a pool of shorter videos to fill  gaps between when the episode ends and when the next show starts
+    Stretch: Could have a pool of shorter videos to fill gaps between when the
+    episode ends and when the next show starts
         i.e. commercial, music videos, etc
-        ex: finishes at 9:25 am, play a music video, collection of old commercials, or other interstitial material to fill the space
-        This media could be selected randomly or from a themed pool of media files in a subdirectory
+        ex: finishes at 9:25 am, play a music video, collection of old commercials,
+        or other interstitial material to fill the space
+        This media could be selected randomly or from a themed pool of media files
+        in a subdirectory
 
 Deliverables:
     A program that can be instructed to interpret files present in a specified filesystem directory
