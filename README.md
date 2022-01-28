@@ -2,7 +2,7 @@ CSCI112 Semester Project - Jacob Seman
 
 Television Broadcast Schedule Emulator
 
-The program should emulate a television broadcast station scheduler. In this scope, the functionality that matters is the ability to use a program to produce a "channel" wherein video files are scheduled categorically and in alignment with a typical broadcast schedule. The end user can expect to run the program and select a channel based on a description, after which an embedded (or therabouts) media player is evoked and a video file (and/or playlist of upcoming video files) is queued based on time of day relative to the program's "schedule".
+The program should emulate a television broadcast station scheduler. In this scope, the functionality that matters is the ability to use a program to produce a "channel" wherein video files are scheduled categorically and in alignment with a typical broadcast schedule. The end user can expect to run the program and select a channel based on a description, after which an embedded (or thereabouts) media player is evoked and a video file (and/or playlist of upcoming video files) is queued based on time of day relative to the program's "schedule".
 
 This will require accurate system timekeeping, time scheduling, hooks and arguments to control a media player or generate a playlist, a method for reading various media file metadata (length, type, etc), as well as a way to read a filesystem organized in a specific way. It would be beneficial to interpret various formats and syntax of filenames, or disregard filenames and utilize a type of metadata that is present for all media in the system.
 
