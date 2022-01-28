@@ -31,7 +31,7 @@ This will require accurate system timekeeping, time scheduling, hooks and argume
 Requirements and expectations:
 
     Set start time on the clock at 15 min increments
-        typically 00 or 30, but also allow for 15 and 45 to accomodate shorter shows
+        typically 00 or 30, but also allow for 15 and 45 to accommodate shorter shows
 
     Fill schedule with 24 hour block rotation
         Each show has a set time block to fill
