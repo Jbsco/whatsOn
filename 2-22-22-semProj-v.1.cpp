@@ -29,10 +29,21 @@
  ******************************************************************************/
 
 #include<iostream>
-#include<ctime> // assuming this will be used
-#include<filesystem> // definitely going to need one of these!
-#include<dirent.h> // maybe this?
-// I would prefer to avoid the windows specific libraries.
+#include<sstream>
+#include<ctime> // assuming this will be used extensively
+//#include<filesystem> // might need this for filesystem operations
+#include<dirent.h> // use dirent instead
+#include<sys/stat.h> // this will be needed with dirent
+// prefer to avoid the windows specific libraries.
+
+// utilize tool such as ffmpeg for file reporting
+// VLC also has these features
+// check "spawn" as well
+// system call function "exec" -> ffmpeg or vlc with arguments to get metadata
+// 
+
+// write tool to interpret ffmpeg output
+// wrap into dirent to process subfolders/directories
 
 using namespace std;
 
@@ -49,39 +60,78 @@ using namespace std;
 
 int main(/* external arguments !!! */){
 
-    /* example snippet ********************************************************/
+    /* example snippet *********************************************************
     namespace fs = std::filesystem;
     // std::string path = "/path/to/directory";
     string path="/media/video/channel_1";
     for (const auto &entry : fs::directory_iterator(path))
         cout << entry.path() << endl;
-    /**************************************************************************/
+    ***************************************************************************/
 
-
-    /* example snippet ********************************************************/
+    /* example snippet *********************************************************
     DIR *dir;
     struct dirent *ent;
     if((dir=opendir("c:\\src\\"))!=NULL) {
-        /* print all the files and directories within directory */
+        // print all the files and directories within directory
         while((ent=readdir(dir))!=NULL){
             printf("%s\n",ent->d_name);
         }
         closedir(dir);
     }
     else{
-        /* could not open directory */
+        // could not open directory
         perror("");
         return EXIT_FAILURE;
     }
+    ***************************************************************************/
+
+    /* example snippet ********************************************************/
+    struct stat file_stats;
+    DIR *dirp;
+    struct dirent* dent;
+    dirp=opendir("mediaRoot/dir"); // parent directory of media subdirs
+    do{
+        dent=readdir(dirp); // read dir to get subdirs/files
+        if(dent){
+            printf("  file \"%s\"",dent->d_name);
+            printf(" is size %u\n",(unsigned int)file_stats.st_size);
+        }
+    }
+    while(dent);
+    closedir(dirp);
+    
+    // consider creating stringstreams or char arrays for channel directories
     /**************************************************************************/
 
     // functions for input/handling
-    // set time/call handlers
     // up/down for channel select?
+    while(1){
+        int ch=3;
+        cout << "Welcome to TV Scheduler - Current channel: "
+                << ch << endl;
+        cout << "Input new channel: ";
+        cin >> ch;
+    }
+
+    // send channel to directory function above
+
+    // set time/call handlers
+    int initialT=time(NULL);
+    // check for currentTime%30==0 to start next process
+    // or use a timer corresponding to time blocks
+
+
+    //if(exec play file) wait([metaData read for media play time]);
+
     // try testing on audio files for simplicity/portability at first
+    
     // identify a simple media player that is compatible with needed filetypes
+    
     //  and can accept external arguments (or flags).
+    
     // need some method of determining media playback length - from metadata?
+    
     // functions for computing efficient time block fill
+    
     return 0;
 }
