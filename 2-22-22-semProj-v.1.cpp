@@ -30,6 +30,9 @@
 
 #include<iostream>
 #include<ctime> // assuming this will be used
+#include<filesystem> // definitely going to need one of these!
+#include<dirent.h> // maybe this?
+// I would prefer to avoid the windows specific libraries.
 
 using namespace std;
 
@@ -45,6 +48,33 @@ using namespace std;
 // class for timekeeping/scheduling, part of channel class?
 
 int main(/* external arguments !!! */){
+
+    /* example snippet ********************************************************/
+    namespace fs = std::filesystem;
+    // std::string path = "/path/to/directory";
+    string path="/media/video/channel_1";
+    for (const auto &entry : fs::directory_iterator(path))
+        cout << entry.path() << endl;
+    /**************************************************************************/
+
+
+    /* example snippet ********************************************************/
+    DIR *dir;
+    struct dirent *ent;
+    if((dir=opendir("c:\\src\\"))!=NULL) {
+        /* print all the files and directories within directory */
+        while((ent=readdir(dir))!=NULL){
+            printf("%s\n",ent->d_name);
+        }
+        closedir(dir);
+    }
+    else{
+        /* could not open directory */
+        perror("");
+        return EXIT_FAILURE;
+    }
+    /**************************************************************************/
+
     // functions for input/handling
     // set time/call handlers
     // up/down for channel select?
