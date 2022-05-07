@@ -47,7 +47,7 @@ class Media{
         void scanFiles(){ // scan directory function
             DIR *tDir;
             struct dirent *ent;
-            if((tDir=opendir(dir.c_str()))!=NULL){
+            if((tDir=opendir(dir.c_str()))!=NULL){ // this may need full directory specified
                 while((ent=readdir(tDir))!=NULL){
                     string temp=ent->d_name;
                     if(temp.rfind(".mp4")!=string::npos||
@@ -84,7 +84,7 @@ class Media{
         double getLength(const string &file){ // get duration in seconds
             char arg[1024]; // char array for ffprobe and argument
             // build argument expression:
-            sprintf(arg,"ffprobe -i \"%s\" -show_entries format=duration -v quiet -of csv=\"p=0\" >wO_swap",file.c_str());
+            sprintf(arg,"ffprobe -i \"%s\" -show_entries format=duration -v quiet -of csv=\"p=0\" >wO_swap",file.c_str()); // needs full directory specified
             system(arg); // takes arguments from above to call ffmpeg's ffprobe function on file
             ifstream wO_swap;
             string result;
