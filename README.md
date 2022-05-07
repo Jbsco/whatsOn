@@ -57,6 +57,7 @@ Deliverables:
 
 
 A reduced scope functionality should be achievable by the end of the semester. At a minimum, this reduced scope should provide the following functionality:
+
     The executable should be able to be run from any location in a Windows system
 
     If no configuration file exists, prompt the user for the media player executable path and media "root" folder and store this information
