@@ -269,9 +269,6 @@ int main(int argc,char *argv[]){
     verbose=0;
     if(argc>=2&&(string)argv[1]=="-v") verbose=1; // verbose flag set, output all terminal messages
     configGet();
-
-    // TODO: menu system
-
     Directories user;
     cout << "What's On v1.1 - now saving your place, per directory!" << endl;
     user.printDirs();
@@ -282,8 +279,5 @@ int main(int argc,char *argv[]){
         if(input=="quit") break;
         user.play(input);
     }
-
-    // TODO: check for user input between episodes, to exit loop to main menu
-
     return 0;
 }
