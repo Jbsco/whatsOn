@@ -53,6 +53,8 @@ class Media{
                        temp.rfind(".MP4")!=string::npos||
                        temp.rfind(".mkv")!=string::npos||
                        temp.rfind(".MKV")!=string::npos||
+                       temp.rfind(".wav")!=string::npos||
+                       temp.rfind(".WAV")!=string::npos||
                        temp.rfind(".flac")!=string::npos||
                        temp.rfind(".FLAC")!=string::npos||
                        temp.rfind(".mpg")!=string::npos||
