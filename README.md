@@ -100,4 +100,5 @@ required executable path and media root path, and select a subfolder to begin pl
 This solves a specific problem when trying to approximate the same functionality with existing media-player programs that
 are already able to automatically advance to the next file in a folder, as well as save the last played file to resume upon
 reopening the player. This "player only" approximation is not capable of saving a position across different subdirectories
-(shows), meaning that a user's position in a certain subdirectory will be lost if another subdirectory is played from.
+(shows), meaning that a user's position in a certain subdirectory will be lost if another subdirectory is played from. This
+program alleviates that slight irritation by tying the progress in a subdirectory to the directory itself.
